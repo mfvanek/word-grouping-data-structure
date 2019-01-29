@@ -1,4 +1,4 @@
-# word-groupping-data-structure
+# word-grouping-data-structure
 
 ## Тестовое задание
 Есть строка, состоящая из слов. Все слова в ней разделены одним пробелом.  
