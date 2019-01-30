@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2019. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek
+ */
+
 package com.mfvanek.word.grouping.impl;
 
 import com.mfvanek.word.grouping.interfaces.WordBag;
@@ -93,6 +98,15 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
             return group.contains(word);
         }
         return false;
+    }
+
+    @Override
+    public WordBag getWordsByLetter(final char letter) {
+        final WordBag group = groups.get(letter);
+        if (group != null) {
+            return group;
+        }
+        return EmptyWordBag.makeEmpty();
     }
 
     @Override

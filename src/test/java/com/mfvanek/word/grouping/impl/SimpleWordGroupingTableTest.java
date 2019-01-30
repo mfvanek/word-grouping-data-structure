@@ -1,5 +1,11 @@
+/*
+ * Copyright (c) 2019. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek
+ */
+
 package com.mfvanek.word.grouping.impl;
 
+import com.mfvanek.word.grouping.interfaces.WordBag;
 import com.mfvanek.word.grouping.interfaces.WordGroupingTable;
 import org.junit.jupiter.api.Test;
 
@@ -118,5 +124,29 @@ class SimpleWordGroupingTableTest {
         assertEquals(1, table.size());
 
         assertThrows(IllegalArgumentException.class, () -> table.containsWord(""));
+    }
+
+    @Test
+    void getWordsByLetter() {
+        final WordGroupingTable table = new SimpleWordGroupingTable("apple banana orange");
+        assertEquals(3, table.size());
+
+        WordBag bag = table.getWordsByLetter('a');
+        assertNotNull(bag);
+        assertEquals(1, bag.size());
+        assertFalse(bag.isEmpty());
+        assertEquals("[apple]", bag.toString());
+
+        bag = table.getWordsByLetter('b');
+        assertNotNull(bag);
+        assertEquals(1, bag.size());
+        assertFalse(bag.isEmpty());
+        assertEquals("[banana]", bag.toString());
+
+        bag = table.getWordsByLetter('c');
+        assertNotNull(bag);
+        assertEquals(0, bag.size());
+        assertTrue(bag.isEmpty());
+        assertEquals("[]", bag.toString());
     }
 }

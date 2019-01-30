@@ -1,9 +1,14 @@
+/*
+ * Copyright (c) 2019. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek
+ */
+
 package com.mfvanek.word.grouping;
 
 import com.mfvanek.word.grouping.impl.SimpleWordGroupingTable;
 import com.mfvanek.word.grouping.interfaces.WordGroupingTable;
 
-public class DemoMain {
+class DemoMain {
 
     public static void main(String[] args) {
         final WordGroupingTable table = new SimpleWordGroupingTable("сапог сарай арбуз болт бокс биржа");

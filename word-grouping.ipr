@@ -13,6 +13,12 @@
       <module name="word-grouping-data-structure" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="CopyrightManager" default="mfvanek">
+    <copyright>
+      <option name="notice" value="Copyright (c) &amp;#36;today.year. Ivan Vakhrushev. All rights reserved.&#10;https://github.com/mfvanek" />
+      <option name="myName" value="mfvanek" />
+    </copyright>
+  </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
     <value-preview-text-wrapping value="false" />

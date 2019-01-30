@@ -1,8 +1,13 @@
+/*
+ * Copyright (c) 2019. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek
+ */
+
 package com.mfvanek.word.grouping.impl;
 
 import java.util.Comparator;
 
-public class WordComparator implements Comparator<String> {
+class WordComparator implements Comparator<String> {
 
     @Override
     public int compare(String word1, String word2) {

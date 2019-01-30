@@ -1,7 +1,11 @@
+/*
+ * Copyright (c) 2019. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek
+ */
+
 package com.mfvanek.word.grouping.interfaces;
 
 import java.util.Map;
-import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
 public interface WordGroupingTable {
@@ -16,6 +20,8 @@ public interface WordGroupingTable {
     boolean containsLetter(final char letter);
 
     boolean containsWord(final String word);
+
+    WordBag getWordsByLetter(final char letter);
 
     int size();
 

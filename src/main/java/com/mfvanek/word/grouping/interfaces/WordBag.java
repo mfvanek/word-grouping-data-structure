@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2019. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek
+ */
+
 package com.mfvanek.word.grouping.interfaces;
 
 public interface WordBag {
@@ -7,4 +12,8 @@ public interface WordBag {
     boolean contains(final String word);
 
     int size();
+
+    default boolean isEmpty() {
+        return size() == 0;
+    }
 }
