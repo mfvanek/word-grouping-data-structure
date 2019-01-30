@@ -10,3 +10,15 @@
 
 Пример строки: String s = «сапог сарай арбуз болт бокс биржа»  
 Отсортированная строка: [б=[биржа, бокс, болт], c=[caпог, сарай]]
+
+## Solution overview
+The resulting data structure is a combination of sorted map and sorted multiset as a map value.
+For more information see two main interfaces:
+- [WordBag](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/com/mfvanek/word/grouping/interfaces/WordBag.java)
+- [WordGroupingTable](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/com/mfvanek/word/grouping/interfaces/WordGroupingTable.java)
+
+## Technology stack
+- Java 8
+- Maven
+- [Google Guava](https://github.com/google/guava)
+- JUnit 5
