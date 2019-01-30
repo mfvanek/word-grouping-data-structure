@@ -7,14 +7,17 @@ public class DemoMain {
 
     public static void main(String[] args) {
         final WordGroupingTable table = new SimpleWordGroupingTable("сапог сарай арбуз болт бокс биржа");
-        System.out.println("All elements" + System.lineSeparator() + table);
+        System.out.println("Initial collection" + System.lineSeparator() + table);
 
-        System.out.println(System.lineSeparator() + "Filtered");
-        table.stream()
-                .filter(e -> e.getValue().size() > 1)
-                .forEach(e -> System.out.println(String.format("%c=%s", e.getKey(), e.getValue())));
+        final int limit1 = 1;
+        System.out.println(System.lineSeparator() + "Filtered by size larger than " + limit1);
+        System.out.println(table.filter(e -> e.getValue().size() > limit1));
 
         table.add("сапог").add("барак").add("автобус").add("астроном");
         System.out.println(System.lineSeparator() + "After adding new words" + System.lineSeparator() + table);
+
+        final int limit3 = 3;
+        System.out.println(System.lineSeparator() + "Filtered by size larger than " + limit3);
+        System.out.println(table.filter(e -> e.getValue().size() > limit3));
     }
 }

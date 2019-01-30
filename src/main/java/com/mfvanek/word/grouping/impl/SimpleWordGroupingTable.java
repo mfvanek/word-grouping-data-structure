@@ -11,7 +11,7 @@ import java.util.SortedMap;
 import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.function.BiConsumer;
-import java.util.stream.Stream;
+import java.util.function.Predicate;
 
 /**
  * Simple implementation of {@link WordGroupingTable} using SortedMap
@@ -30,12 +30,16 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
     }
 
     private SimpleWordGroupingTable(final String[] words) {
+        this();
         Objects.requireNonNull(words);
         if (words.length == 0) {
             throw new IllegalArgumentException("words");
         }
-        this.groups = new TreeMap<>();
         groupify(words);
+    }
+
+    private SimpleWordGroupingTable() {
+        this.groups = new TreeMap<>();
     }
 
     private static String[] split(final String words) {
@@ -90,8 +94,10 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
     }
 
     @Override
-    public Stream<Map.Entry<Character, WordBag>> stream() {
-        return groups.entrySet().stream();
+    public WordGroupingTable filter(Predicate<Map.Entry<Character, WordBag>> predicate) {
+        final SimpleWordGroupingTable result = new SimpleWordGroupingTable();
+        this.groups.entrySet().stream().filter(predicate).forEach(e -> result.groups.put(e.getKey(), e.getValue()));
+        return result;
     }
 
     @Override
