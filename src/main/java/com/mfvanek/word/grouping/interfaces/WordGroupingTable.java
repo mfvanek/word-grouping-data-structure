@@ -13,11 +13,11 @@ public interface WordGroupingTable {
      */
     WordGroupingTable add(final String word);
 
-    boolean contains(final String word);
+    boolean containsLetter(final char letter);
+
+    boolean containsWord(final String word);
 
     int size();
-
-    void forEach(BiConsumer<Character, WordBag> action);
 
     /**
      * Filters the table with given {@param predicate} and returns a new instance of the {@link WordGroupingTable}

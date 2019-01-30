@@ -10,7 +10,6 @@ import java.util.Objects;
 import java.util.SortedMap;
 import java.util.StringJoiner;
 import java.util.TreeMap;
-import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
 /**
@@ -44,16 +43,19 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
 
     private static String[] split(final String words) {
         Objects.requireNonNull(words);
+        if (StringUtils.isBlank(words)) {
+            throw new IllegalArgumentException("words");
+        }
         return words.split(delimiter);
     }
 
     private void groupify(final String[] words) {
         for (final String word : words) {
-            addWord(word);
+            addWord(word, false);
         }
     }
 
-    private void addWord(final String word) {
+    private void addWord(final String word, final boolean throwsOnBlankStrings) {
         Objects.requireNonNull(word);
         if (StringUtils.isNoneBlank(word)) {
             final Character firstLetter = word.charAt(0);
@@ -63,18 +65,28 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
             } else {
                 groups.put(firstLetter, new SimpleWordBag(word));
             }
+        } else if (throwsOnBlankStrings) {
+            throw new IllegalArgumentException("word");
         }
     }
 
     @Override
     public WordGroupingTable add(final String word) {
-        addWord(word);
+        addWord(word, true);
         return this;
     }
 
     @Override
-    public boolean contains(final String word) {
+    public boolean containsLetter(final char letter) {
+        return groups.containsKey(letter);
+    }
+
+    @Override
+    public boolean containsWord(final String word) {
         Objects.requireNonNull(word);
+        if (StringUtils.isBlank(word)) {
+            throw new IllegalArgumentException("word");
+        }
         final Character firstLetter = word.charAt(0);
         final WordBag group = groups.get(firstLetter);
         if (group != null) {
@@ -86,11 +98,6 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
     @Override
     public int size() {
         return groups.size();
-    }
-
-    @Override
-    public void forEach(BiConsumer<Character, WordBag> action) {
-        groups.forEach(action);
     }
 
     @Override

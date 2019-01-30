@@ -30,7 +30,7 @@ class WordComparatorTest {
     }
 
     @Test
-    void compareWithSameLength() {
+    void compareWithTheSameLength() {
         assertEquals(0, comparator.compare("one", "one"));
         assertEquals(0, comparator.compare("two", "two"));
         assertTrue(comparator.compare("one", "two") < 0);
@@ -38,7 +38,7 @@ class WordComparatorTest {
     }
 
     @Test
-    void compareWithSameLengthButDifferentCase() {
+    void compareWithTheSameLengthButDifferentCase() {
         assertTrue(comparator.compare("one", "One") > 0);
         assertTrue(comparator.compare("One", "one") < 0);
     }

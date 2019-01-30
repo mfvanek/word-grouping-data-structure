@@ -15,7 +15,7 @@
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -625,7 +625,38 @@
           <option name="ITERATION_ELEMENTS_WRAPPING" value="chop_down_if_not_single" />
         </formatting-settings>
       </DBN-SQL>
+      <DBN-PSQL>
+        <case-options enabled="false">
+          <option name="KEYWORD_CASE" value="lower" />
+          <option name="FUNCTION_CASE" value="lower" />
+          <option name="PARAMETER_CASE" value="lower" />
+          <option name="DATATYPE_CASE" value="lower" />
+          <option name="OBJECT_CASE" value="preserve" />
+        </case-options>
+        <formatting-settings enabled="false" />
+      </DBN-PSQL>
+      <DBN-SQL>
+        <case-options enabled="false">
+          <option name="KEYWORD_CASE" value="lower" />
+          <option name="FUNCTION_CASE" value="lower" />
+          <option name="PARAMETER_CASE" value="lower" />
+          <option name="DATATYPE_CASE" value="lower" />
+          <option name="OBJECT_CASE" value="preserve" />
+        </case-options>
+        <formatting-settings enabled="false">
+          <option name="STATEMENT_SPACING" value="one_line" />
+          <option name="CLAUSE_CHOP_DOWN" value="chop_down_if_statement_long" />
+          <option name="ITERATION_ELEMENTS_WRAPPING" value="chop_down_if_not_single" />
+        </formatting-settings>
+      </DBN-SQL>
     </code_scheme>
+  </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="ivan.vakhrushev">
+      <words>
+        <w>groupify</w>
+      </words>
+    </dictionary>
   </component>
   <component name="ProjectModuleManager">
     <modules>
