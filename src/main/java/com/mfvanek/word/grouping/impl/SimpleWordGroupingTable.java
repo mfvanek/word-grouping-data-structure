@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Ivan Vakhrushev. All rights reserved.
+ * Copyright (c) 2019-2021. Ivan Vakhrushev. All rights reserved.
  * https://github.com/mfvanek
  */
 
