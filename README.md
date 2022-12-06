@@ -1,6 +1,9 @@
 # word-grouping-data-structure
 
-## Тестовое задание
+[![Java CI](https://github.com/mfvanek/word-grouping-data-structure/actions/workflows/tests.yml/badge.svg)](https://github.com/mfvanek/word-grouping-data-structure/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/gh/mfvanek/word-grouping-data-structure/branch/master/graph/badge.svg?token=Y1C4H8O8P5)](https://codecov.io/gh/mfvanek/word-grouping-data-structure)
+
+## Task
 Есть строка, состоящая из слов. Все слова в ней разделены одним пробелом.  
 Нужно преобразовать строку в такую структуру данных, которая группирует слова по первой букве в слове.  
 Затем вывести только группы, содержащие более одного элемента.  

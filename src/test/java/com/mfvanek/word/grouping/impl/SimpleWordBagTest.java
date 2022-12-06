@@ -8,54 +8,64 @@ package com.mfvanek.word.grouping.impl;
 import com.mfvanek.word.grouping.interfaces.WordBag;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class SimpleWordBagTest {
 
     @Test
     void empty() {
         final WordBag bag = new SimpleWordBag();
-        assertNotNull(bag);
-        assertEquals(0, bag.size());
-        assertEquals("[]", bag.toString());
-        assertFalse(bag.contains(""));
-        assertFalse(bag.contains("one"));
+        assertThat(bag)
+                .hasToString("[]")
+                .satisfies(b -> {
+                    assertThat(b.size()).isZero();
+                    assertThat(b.contains("")).isFalse();
+                    assertThat(b.contains("one")).isFalse();
+                });
     }
 
     @Test
     void constructor() {
         final WordBag bag = new SimpleWordBag("one");
-        assertNotNull(bag);
-        assertEquals(1, bag.size());
-        assertEquals("[one]", bag.toString());
-        assertFalse(bag.contains(""));
-        assertTrue(bag.contains("one"));
+        assertThat(bag)
+                .hasToString("[one]")
+                .satisfies(b -> {
+                    assertThat(b.size()).isEqualTo(1);
+                    assertThat(b.contains("")).isFalse();
+                    assertThat(b.contains("one")).isTrue();
+                });
     }
 
     @Test
     void constructorWithNull() {
-        assertThrows(NullPointerException.class, () -> new SimpleWordBag((null)));
+        assertThatThrownBy(() -> new SimpleWordBag(null))
+                .isInstanceOf(NullPointerException.class)
+                .hasMessage("word cannot be null");
     }
 
     @Test
     void add() {
-        final WordBag bag = new SimpleWordBag();
-        bag.add("one").add("two").add("one more");
-        assertEquals(3, bag.size());
-        assertEquals("[one more, one, two]", bag.toString());
-        assertTrue(bag.contains("one"));
-        assertTrue(bag.contains("two"));
-        assertTrue(bag.contains("one more"));
-        assertFalse(bag.contains("three"));
+        final WordBag bag = new SimpleWordBag()
+                .add("one")
+                .add("two")
+                .add("one more");
+        assertThat(bag)
+                .hasToString("[one more, one, two]")
+                .satisfies(b -> {
+                    assertThat(b.size()).isEqualTo(3);
+                    assertThat(b.contains("one")).isTrue();
+                    assertThat(b.contains("two")).isTrue();
+                    assertThat(b.contains("one more")).isTrue();
+                    assertThat(b.contains("three")).isFalse();
+                });
     }
 
     @Test
     void addWithNull() {
         final WordBag bag = new SimpleWordBag();
-        assertThrows(NullPointerException.class, () -> bag.add(null));
+        assertThatThrownBy(() -> bag.add(null))
+                .isInstanceOf(NullPointerException.class)
+                .hasMessage("word cannot be null");
     }
 }
