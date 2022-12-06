@@ -8,9 +8,10 @@ package com.mfvanek.word.grouping;
 import com.mfvanek.word.grouping.impl.SimpleWordGroupingTable;
 import com.mfvanek.word.grouping.interfaces.WordGroupingTable;
 
+@SuppressWarnings("PMD.SystemPrintln")
 class DemoMain {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         final WordGroupingTable table = new SimpleWordGroupingTable("сапог сарай арбуз болт бокс биржа");
         System.out.println("Initial collection" + System.lineSeparator() + table);
 

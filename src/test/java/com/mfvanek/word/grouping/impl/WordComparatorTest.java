@@ -14,37 +14,37 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class WordComparatorTest {
 
-    private static final Comparator<String> comparator = new WordComparator();
+    private static final Comparator<String> COMPARATOR = new WordComparator();
 
     @Test
     void compareNulls() {
-        assertEquals(0, comparator.compare(null, null));
-        assertEquals(1, comparator.compare("", null));
-        assertEquals(-1, comparator.compare(null, ""));
+        assertEquals(0, COMPARATOR.compare(null, null));
+        assertEquals(1, COMPARATOR.compare("", null));
+        assertEquals(-1, COMPARATOR.compare(null, ""));
     }
 
     @Test
     void compareEmpty() {
-        assertEquals(0, comparator.compare("", ""));
+        assertEquals(0, COMPARATOR.compare("", ""));
     }
 
     @Test
     void compareWithDifferentLength() {
-        assertEquals(1, comparator.compare("long", "short"));
-        assertEquals(-1, comparator.compare("short", "long"));
+        assertEquals(1, COMPARATOR.compare("long", "short"));
+        assertEquals(-1, COMPARATOR.compare("short", "long"));
     }
 
     @Test
     void compareWithTheSameLength() {
-        assertEquals(0, comparator.compare("one", "one"));
-        assertEquals(0, comparator.compare("two", "two"));
-        assertTrue(comparator.compare("one", "two") < 0);
-        assertTrue(comparator.compare("two", "one") > 0);
+        assertEquals(0, COMPARATOR.compare("one", "one"));
+        assertEquals(0, COMPARATOR.compare("two", "two"));
+        assertTrue(COMPARATOR.compare("one", "two") < 0);
+        assertTrue(COMPARATOR.compare("two", "one") > 0);
     }
 
     @Test
     void compareWithTheSameLengthButDifferentCase() {
-        assertTrue(comparator.compare("one", "One") > 0);
-        assertTrue(comparator.compare("One", "one") < 0);
+        assertTrue(COMPARATOR.compare("one", "One") > 0);
+        assertTrue(COMPARATOR.compare("One", "one") < 0);
     }
 }

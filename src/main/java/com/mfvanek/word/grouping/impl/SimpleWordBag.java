@@ -8,11 +8,11 @@ package com.mfvanek.word.grouping.impl;
 import com.google.common.collect.TreeMultiset;
 import com.mfvanek.word.grouping.interfaces.WordBag;
 
-import javax.annotation.concurrent.NotThreadSafe;
 import java.util.Objects;
+import javax.annotation.concurrent.NotThreadSafe;
 
 /**
- * Simple implementation of {@link WordBag} using Guava TreeMultiset
+ * Simple implementation of {@link WordBag} using Guava TreeMultiset.
  *
  * @see com.google.common.collect.TreeMultiset
  */
@@ -25,6 +25,7 @@ public class SimpleWordBag implements WordBag {
         bag = TreeMultiset.create(new WordComparator());
     }
 
+    @SuppressWarnings("PMD.ConstructorCallsOverridableMethod") // TODO
     public SimpleWordBag(final String word) {
         this();
         add(word);
@@ -32,7 +33,7 @@ public class SimpleWordBag implements WordBag {
 
     @Override
     public WordBag add(final String word) {
-        Objects.requireNonNull(word);
+        Objects.requireNonNull(word, "word cannot be null");
         bag.add(word);
         return this;
     }

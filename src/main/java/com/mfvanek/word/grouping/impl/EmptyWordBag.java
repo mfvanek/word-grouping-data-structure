@@ -16,22 +16,22 @@ final class EmptyWordBag implements WordBag {
     }
 
     @Override
-    public final WordBag add(final String word) {
+    public WordBag add(final String word) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public final boolean contains(final String word) {
+    public boolean contains(final String word) {
         return false;
     }
 
     @Override
-    public final int size() {
+    public int size() {
         return 0;
     }
 
     @Override
-    public final String toString() {
+    public String toString() {
         return "[]";
     }
 

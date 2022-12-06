@@ -9,23 +9,23 @@ import com.mfvanek.word.grouping.interfaces.WordBag;
 import com.mfvanek.word.grouping.interfaces.WordGroupingTable;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.annotation.concurrent.NotThreadSafe;
 import java.util.Map;
 import java.util.Objects;
 import java.util.SortedMap;
 import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.function.Predicate;
+import javax.annotation.concurrent.NotThreadSafe;
 
 /**
- * Simple implementation of {@link WordGroupingTable} using SortedMap
+ * Simple implementation of {@link WordGroupingTable} using SortedMap.
  * Case sensitive
  * Not thread-safe
  */
 @NotThreadSafe
 public class SimpleWordGroupingTable implements WordGroupingTable {
 
-    private static final String delimiter = StringUtils.SPACE;
+    private static final String DELIMITER = StringUtils.SPACE;
 
     private final SortedMap<Character, WordBag> groups;
 
@@ -33,8 +33,8 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
         this(split(words));
     }
 
-    private SimpleWordGroupingTable(final String[] words) {
-        this();
+    private SimpleWordGroupingTable(final String... words) {
+        this(); // TODO remove
         Objects.requireNonNull(words);
         if (words.length == 0) {
             throw new IllegalArgumentException("words");
@@ -51,17 +51,17 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
         if (StringUtils.isBlank(words)) {
             throw new IllegalArgumentException("words");
         }
-        return words.split(delimiter);
+        return words.split(DELIMITER);
     }
 
-    private void groupify(final String[] words) {
+    private void groupify(final String... words) {
         for (final String word : words) {
             addWord(word, false);
         }
     }
 
     private void addWord(final String word, final boolean throwsOnBlankStrings) {
-        Objects.requireNonNull(word);
+        Objects.requireNonNull(word, "word cannot be null");
         if (StringUtils.isNoneBlank(word)) {
             final Character firstLetter = word.charAt(0);
             final WordBag group = groups.get(firstLetter);
@@ -115,7 +115,7 @@ public class SimpleWordGroupingTable implements WordGroupingTable {
     }
 
     @Override
-    public WordGroupingTable filter(Predicate<Map.Entry<Character, WordBag>> predicate) {
+    public WordGroupingTable filter(final Predicate<Map.Entry<Character, WordBag>> predicate) {
         final SimpleWordGroupingTable result = new SimpleWordGroupingTable();
         this.groups.entrySet().stream().filter(predicate).forEach(e -> result.groups.put(e.getKey(), e.getValue()));
         return result;
