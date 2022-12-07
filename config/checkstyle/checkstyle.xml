@@ -223,7 +223,6 @@
         </module>
         <module name="UnusedImports"/>
         <module name="RedundantImport"/>
-        <!-- TODO
         <module name="IllegalImport">
             <property name="id" value="IllegalImportMain"/>
             <property name="regexp" value="true"/>
@@ -236,7 +235,6 @@
                 ^org\.springframework\.test\.web\.servlet\.MockMvc"/>
             <property name="illegalPkgs" value="^org\.hamcrest"/>
         </module>
-        -->
         <module name="IllegalImport">
             <property name="id" value="IllegalImportJavaIo"/>
             <property name="regexp" value="true"/>

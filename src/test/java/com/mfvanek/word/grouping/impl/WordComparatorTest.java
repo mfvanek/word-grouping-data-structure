@@ -9,42 +9,54 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("EqualsWithItself")
 class WordComparatorTest {
 
     private static final Comparator<String> COMPARATOR = new WordComparator();
 
     @Test
     void compareNulls() {
-        assertEquals(0, COMPARATOR.compare(null, null));
-        assertEquals(1, COMPARATOR.compare("", null));
-        assertEquals(-1, COMPARATOR.compare(null, ""));
+        assertThat(COMPARATOR.compare(null, null))
+                .isZero();
+        assertThat(COMPARATOR.compare("", null))
+                .isPositive();
+        assertThat(COMPARATOR.compare(null, ""))
+                .isNegative();
     }
 
     @Test
     void compareEmpty() {
-        assertEquals(0, COMPARATOR.compare("", ""));
+        assertThat(COMPARATOR.compare("", ""))
+                .isZero();
     }
 
     @Test
     void compareWithDifferentLength() {
-        assertEquals(1, COMPARATOR.compare("long", "short"));
-        assertEquals(-1, COMPARATOR.compare("short", "long"));
+        assertThat(COMPARATOR.compare("long", "short"))
+                .isPositive();
+        assertThat(COMPARATOR.compare("short", "long"))
+                .isNegative();
     }
 
     @Test
     void compareWithTheSameLength() {
-        assertEquals(0, COMPARATOR.compare("one", "one"));
-        assertEquals(0, COMPARATOR.compare("two", "two"));
-        assertTrue(COMPARATOR.compare("one", "two") < 0);
-        assertTrue(COMPARATOR.compare("two", "one") > 0);
+        assertThat(COMPARATOR.compare("one", "one"))
+                .isZero();
+        assertThat(COMPARATOR.compare("two", "two"))
+                .isZero();
+        assertThat(COMPARATOR.compare("one", "two"))
+                .isNegative();
+        assertThat(COMPARATOR.compare("two", "one"))
+                .isPositive();
     }
 
     @Test
     void compareWithTheSameLengthButDifferentCase() {
-        assertTrue(COMPARATOR.compare("one", "One") > 0);
-        assertTrue(COMPARATOR.compare("One", "one") < 0);
+        assertThat(COMPARATOR.compare("one", "One"))
+                .isPositive();
+        assertThat(COMPARATOR.compare("One", "one"))
+                .isNegative();
     }
 }
