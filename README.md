@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/mfvanek/word-grouping-data-structure/branch/master/graph/badge.svg?token=Y1C4H8O8P5)](https://codecov.io/gh/mfvanek/word-grouping-data-structure)
 
 ## Task
+### RUS
 Есть строка, состоящая из слов. Все слова в ней разделены одним пробелом.  
 Нужно преобразовать строку в такую структуру данных, которая группирует слова по первой букве в слове.  
 Затем вывести только группы, содержащие более одного элемента.  
@@ -21,7 +22,7 @@ For more information see two main interfaces:
 - [WordGroupingTable](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/com/mfvanek/word/grouping/interfaces/WordGroupingTable.java)
 
 ## Technology stack
-- Java 8
+- Java 11
 - Maven
 - [Google Guava](https://github.com/google/guava)
 - JUnit 5

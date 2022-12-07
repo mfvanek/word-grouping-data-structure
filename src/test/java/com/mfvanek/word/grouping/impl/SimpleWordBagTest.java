@@ -27,7 +27,7 @@ class SimpleWordBagTest {
 
     @Test
     void constructor() {
-        final WordBag bag = new SimpleWordBag("one");
+        final WordBag bag = SimpleWordBag.of("one");
         assertThat(bag)
                 .hasToString("[one]")
                 .satisfies(b -> {
@@ -39,7 +39,7 @@ class SimpleWordBagTest {
 
     @Test
     void constructorWithNull() {
-        assertThatThrownBy(() -> new SimpleWordBag(null))
+        assertThatThrownBy(() -> SimpleWordBag.of(null))
                 .isInstanceOf(NullPointerException.class)
                 .hasMessage("word cannot be null");
     }
