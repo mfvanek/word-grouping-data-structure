@@ -6,10 +6,10 @@
 
     <groupId>com.mfvanek</groupId>
     <artifactId>word.grouping</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
 
     <properties>
-        <java.version>8</java.version>
+        <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
@@ -101,7 +101,7 @@
                                     <version>[3.8,)</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
-                                    <version>[8,)</version>
+                                    <version>[11,)</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -224,12 +224,12 @@
                                         <limit>
                                             <counter>INSTRUCTION</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.59</minimum>
+                                            <minimum>0.73</minimum>
                                         </limit>
                                         <limit>
                                             <counter>BRANCH</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.77</minimum>
+                                            <minimum>0.80</minimum>
                                         </limit>
                                         <limit>
                                             <counter>CLASS</counter>
@@ -239,12 +239,12 @@
                                         <limit>
                                             <counter>METHOD</counter>
                                             <value>MISSEDCOUNT</value>
-                                            <maximum>10</maximum>
+                                            <maximum>6</maximum>
                                         </limit>
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>MISSEDCOUNT</value>
-                                            <maximum>23</maximum>
+                                            <maximum>17</maximum>
                                         </limit>
                                     </limits>
                                 </rule>

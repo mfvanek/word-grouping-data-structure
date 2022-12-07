@@ -7,6 +7,7 @@ package com.mfvanek.word.grouping.impl;
 
 import com.mfvanek.word.grouping.interfaces.WordBag;
 
+import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
 @NotThreadSafe
@@ -35,7 +36,8 @@ final class EmptyWordBag implements WordBag {
         return "[]";
     }
 
-    static WordBag makeEmpty() {
+    @Nonnull
+    static WordBag empty() {
         return new EmptyWordBag();
     }
 }

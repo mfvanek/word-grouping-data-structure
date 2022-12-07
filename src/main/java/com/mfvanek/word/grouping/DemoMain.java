@@ -12,7 +12,7 @@ import com.mfvanek.word.grouping.interfaces.WordGroupingTable;
 class DemoMain {
 
     public static void main(final String[] args) {
-        final WordGroupingTable table = new SimpleWordGroupingTable("сапог сарай арбуз болт бокс биржа");
+        final WordGroupingTable table = SimpleWordGroupingTable.fromStringWithDelimiter("сапог сарай арбуз болт бокс биржа");
         System.out.println("Initial collection" + System.lineSeparator() + table);
 
         final int limit1 = 1;

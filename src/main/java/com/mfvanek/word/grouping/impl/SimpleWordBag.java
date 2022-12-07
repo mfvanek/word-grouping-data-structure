@@ -9,6 +9,7 @@ import com.google.common.collect.TreeMultiset;
 import com.mfvanek.word.grouping.interfaces.WordBag;
 
 import java.util.Objects;
+import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;
 
 /**
@@ -17,7 +18,7 @@ import javax.annotation.concurrent.NotThreadSafe;
  * @see com.google.common.collect.TreeMultiset
  */
 @NotThreadSafe
-public class SimpleWordBag implements WordBag {
+public final class SimpleWordBag implements WordBag {
 
     private final TreeMultiset<String> bag;
 
@@ -25,12 +26,7 @@ public class SimpleWordBag implements WordBag {
         bag = TreeMultiset.create(new WordComparator());
     }
 
-    @SuppressWarnings("PMD.ConstructorCallsOverridableMethod") // TODO
-    public SimpleWordBag(final String word) {
-        this();
-        add(word);
-    }
-
+    @Nonnull
     @Override
     public WordBag add(final String word) {
         Objects.requireNonNull(word, "word cannot be null");
@@ -52,5 +48,11 @@ public class SimpleWordBag implements WordBag {
     @Override
     public String toString() {
         return String.format("[%s]", String.join(", ", bag));
+    }
+
+    @Nonnull
+    public static WordBag of(final String word) {
+        return new SimpleWordBag()
+                .add(word);
     }
 }
