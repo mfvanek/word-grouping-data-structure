@@ -20,7 +20,7 @@ version = "1.2.0-SNAPSHOT"
 description = "Word grouping data structure"
 
 dependencies {
-    implementation("com.google.guava:guava:31.1-jre")
+    implementation("com.google.guava:guava:32.1.1-jre")
     implementation("org.apache.commons:commons-text:1.10.0")
 
     testImplementation(platform("org.junit:junit-bom:5.9.3"))
@@ -30,7 +30,7 @@ dependencies {
 
     //pitest("it.mulders.stryker:pit-dashboard-reporter:0.2.1")
     checkstyle("com.thomasjensen.checkstyle.addons:checkstyle-addons:7.0.1")
-    errorprone("com.google.errorprone:error_prone_core:2.19.1")
+    errorprone("com.google.errorprone:error_prone_core:2.20.0")
 }
 
 java {
