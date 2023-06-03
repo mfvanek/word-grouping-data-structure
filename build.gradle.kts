@@ -20,7 +20,7 @@ version = "1.2.0-SNAPSHOT"
 description = "Word grouping data structure"
 
 dependencies {
-    implementation("com.google.guava:guava:31.1-jre")
+    implementation("com.google.guava:guava:32.0.0-jre")
     implementation("org.apache.commons:commons-text:1.10.0")
 
     testImplementation(platform("org.junit:junit-bom:5.9.3"))
