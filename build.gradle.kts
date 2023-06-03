@@ -15,7 +15,7 @@ repositories {
     mavenCentral()
 }
 
-group = "com.mfvanek"
+group = "io.github.mfvanek"
 version = "1.2.0-SNAPSHOT"
 description = "Word grouping data structure"
 

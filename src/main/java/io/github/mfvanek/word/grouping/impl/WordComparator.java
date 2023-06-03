@@ -5,7 +5,7 @@
  * Licensed under the Apache License 2.0
  */
 
-package com.mfvanek.word.grouping.impl;
+package io.github.mfvanek.word.grouping.impl;
 
 import java.io.Serializable;
 import java.util.Comparator;

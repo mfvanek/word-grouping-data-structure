@@ -5,9 +5,9 @@
  * Licensed under the Apache License 2.0
  */
 
-package com.mfvanek.word.grouping.impl;
+package io.github.mfvanek.word.grouping.impl;
 
-import com.mfvanek.word.grouping.interfaces.WordBag;
+import io.github.mfvanek.word.grouping.interfaces.WordBag;
 
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.NotThreadSafe;

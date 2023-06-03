@@ -18,8 +18,8 @@
 ## Solution overview
 The resulting data structure is a combination of sorted map and sorted multiset as a map value.
 For more information see two main interfaces:
-- [WordBag](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/com/mfvanek/word/grouping/interfaces/WordBag.java)
-- [WordGroupingTable](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/com/mfvanek/word/grouping/interfaces/WordGroupingTable.java)
+- [WordBag](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/io/github/mfvanek/word/grouping/interfaces/WordBag.java)
+- [WordGroupingTable](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/io/github/mfvanek/word/grouping/interfaces/WordGroupingTable.java)
 
 ## Technology stack
 - Java 11

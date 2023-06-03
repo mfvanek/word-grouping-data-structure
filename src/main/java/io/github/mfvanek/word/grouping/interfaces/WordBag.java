@@ -5,7 +5,7 @@
  * Licensed under the Apache License 2.0
  */
 
-package com.mfvanek.word.grouping.interfaces;
+package io.github.mfvanek.word.grouping.interfaces;
 
 public interface WordBag {
 

@@ -5,10 +5,10 @@
  * Licensed under the Apache License 2.0
  */
 
-package com.mfvanek.word.grouping.impl;
+package io.github.mfvanek.word.grouping.impl;
 
-import com.mfvanek.word.grouping.interfaces.WordBag;
-import com.mfvanek.word.grouping.interfaces.WordGroupingTable;
+import io.github.mfvanek.word.grouping.interfaces.WordBag;
+import io.github.mfvanek.word.grouping.interfaces.WordGroupingTable;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
