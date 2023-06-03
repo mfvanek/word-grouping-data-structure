@@ -1,12 +1,14 @@
 /*
- * Copyright (c) 2019-2021. Ivan Vakhrushev. All rights reserved.
- * https://github.com/mfvanek
+ * Copyright (c) 2019-2023. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek/word-grouping-data-structure
+ *
+ * Licensed under the Apache License 2.0
  */
 
-package com.mfvanek.word.grouping.impl;
+package io.github.mfvanek.word.grouping.impl;
 
 import com.google.common.collect.TreeMultiset;
-import com.mfvanek.word.grouping.interfaces.WordBag;
+import io.github.mfvanek.word.grouping.interfaces.WordBag;
 
 import java.util.Objects;
 import javax.annotation.Nonnull;
