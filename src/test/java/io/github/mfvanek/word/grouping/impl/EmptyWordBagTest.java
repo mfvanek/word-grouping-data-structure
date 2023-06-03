@@ -1,6 +1,13 @@
-package com.mfvanek.word.grouping.impl;
+/*
+ * Copyright (c) 2019-2023. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek/word-grouping-data-structure
+ *
+ * Licensed under the Apache License 2.0
+ */
 
-import com.mfvanek.word.grouping.interfaces.WordBag;
+package io.github.mfvanek.word.grouping.impl;
+
+import io.github.mfvanek.word.grouping.interfaces.WordBag;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

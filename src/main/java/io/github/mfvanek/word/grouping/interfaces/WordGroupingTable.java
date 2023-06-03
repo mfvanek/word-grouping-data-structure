@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2019-2021. Ivan Vakhrushev. All rights reserved.
- * https://github.com/mfvanek
+ * Copyright (c) 2019-2023. Ivan Vakhrushev. All rights reserved.
+ * https://github.com/mfvanek/word-grouping-data-structure
+ *
+ * Licensed under the Apache License 2.0
  */
 
-package com.mfvanek.word.grouping.interfaces;
+package io.github.mfvanek.word.grouping.interfaces;
 
 import java.util.Map;
 import java.util.function.Predicate;
@@ -27,7 +29,7 @@ public interface WordGroupingTable {
     int size();
 
     /**
-     * Filters the table with given {@param predicate} and returns a new instance of the {@link WordGroupingTable}.
+     * Filters the table with given {@code predicate} and returns a new instance of the {@link WordGroupingTable}.
      *
      * @param predicate Predicate for filtering
      * @return New instance of the {@link WordGroupingTable}
