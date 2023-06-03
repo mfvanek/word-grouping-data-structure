@@ -27,7 +27,7 @@ public interface WordGroupingTable {
     int size();
 
     /**
-     * Filters the table with given {@param predicate} and returns a new instance of the {@link WordGroupingTable}.
+     * Filters the table with given {@code predicate} and returns a new instance of the {@link WordGroupingTable}.
      *
      * @param predicate Predicate for filtering
      * @return New instance of the {@link WordGroupingTable}
