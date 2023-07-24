@@ -1,3 +1,4 @@
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import net.ltgt.gradle.errorprone.errorprone
 
 plugins {
@@ -6,8 +7,9 @@ plugins {
     id("maven-publish")
     id("checkstyle")
     id("pmd")
-    id("com.github.spotbugs") version "5.0.14"
+    id("com.github.spotbugs") version "5.1.1"
     id("net.ltgt.errorprone") version "3.1.0"
+    id("com.github.ben-manes.versions") version "0.47.0"
 }
 
 repositories {
@@ -16,21 +18,21 @@ repositories {
 }
 
 group = "io.github.mfvanek"
-version = "1.2.0-SNAPSHOT"
+version = "1.2.0"
 description = "Word grouping data structure"
 
 dependencies {
     implementation("com.google.guava:guava:32.1.1-jre")
     implementation("org.apache.commons:commons-text:1.10.0")
 
-    testImplementation(platform("org.junit:junit-bom:5.9.3"))
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.assertj:assertj-core:3.24.2")
 
     //pitest("it.mulders.stryker:pit-dashboard-reporter:0.2.1")
     checkstyle("com.thomasjensen.checkstyle.addons:checkstyle-addons:7.0.1")
-    errorprone("com.google.errorprone:error_prone_core:2.20.0")
+    errorprone("com.google.errorprone:error_prone_core:2.21.0")
 }
 
 java {
@@ -147,5 +149,21 @@ tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
 publishing {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
+    }
+}
+
+fun isNonStable(version: String): Boolean {
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.uppercase().contains(it) }
+    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    val isStable = stableKeyword || regex.matches(version)
+    return isStable.not()
+}
+
+tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
+    checkForGradleUpdate = true
+    gradleReleaseChannel = "current"
+    checkConstraints = true
+    rejectVersionIf {
+        isNonStable(candidate.version)
     }
 }
