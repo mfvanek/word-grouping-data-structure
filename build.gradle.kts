@@ -7,7 +7,7 @@ plugins {
     id("maven-publish")
     id("checkstyle")
     id("pmd")
-    id("com.github.spotbugs") version "5.1.1"
+    id("com.github.spotbugs") version "5.1.2"
     id("net.ltgt.errorprone") version "3.1.0"
     id("com.github.ben-manes.versions") version "0.47.0"
 }
@@ -22,7 +22,7 @@ version = "1.2.0"
 description = "Word grouping data structure"
 
 dependencies {
-    implementation("com.google.guava:guava:32.1.1-jre")
+    implementation("com.google.guava:guava:32.1.2-jre")
     implementation("org.apache.commons:commons-text:1.10.0")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
@@ -32,7 +32,7 @@ dependencies {
 
     //pitest("it.mulders.stryker:pit-dashboard-reporter:0.2.1")
     checkstyle("com.thomasjensen.checkstyle.addons:checkstyle-addons:7.0.1")
-    errorprone("com.google.errorprone:error_prone_core:2.21.0")
+    errorprone("com.google.errorprone:error_prone_core:2.21.1")
 }
 
 java {
