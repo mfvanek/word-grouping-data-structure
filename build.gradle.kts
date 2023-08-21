@@ -7,7 +7,7 @@ plugins {
     id("maven-publish")
     id("checkstyle")
     id("pmd")
-    id("com.github.spotbugs") version "5.1.2"
+    id("com.github.spotbugs") version "5.1.3"
     id("net.ltgt.errorprone") version "3.1.0"
     id("com.github.ben-manes.versions") version "0.47.0"
 }
