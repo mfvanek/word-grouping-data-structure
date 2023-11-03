@@ -23,7 +23,7 @@ description = "Word grouping data structure"
 
 dependencies {
     implementation("com.google.guava:guava:32.1.3-jre")
-    implementation("org.apache.commons:commons-text:1.10.0")
+    implementation("org.apache.commons:commons-text:1.11.0")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
