@@ -7,7 +7,7 @@ plugins {
     id("maven-publish")
     id("checkstyle")
     id("pmd")
-    id("com.github.spotbugs") version "5.2.4"
+    id("com.github.spotbugs") version "6.0.1"
     id("net.ltgt.errorprone") version "3.1.0"
     id("com.github.ben-manes.versions") version "0.50.0"
 }
@@ -18,7 +18,7 @@ repositories {
 }
 
 group = "io.github.mfvanek"
-version = "1.2.0"
+version = "1.2.1"
 description = "Word grouping data structure"
 
 dependencies {
@@ -36,18 +36,28 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
     withJavadocJar()
     withSourcesJar()
 }
 tasks.withType<JavaCompile>().configureEach {
+    options.compilerArgs.add("-parameters")
+    options.encoding = "UTF-8"
     options.errorprone {
         disableWarningsInGeneratedCode.set(true)
     }
 }
+tasks.withType<Javadoc>{
+    options.encoding = "UTF-8"
+}
 
 tasks {
+    wrapper {
+        gradleVersion = "8.5"
+    }
+
     test {
         useJUnitPlatform()
         dependsOn(checkstyleMain, checkstyleTest, pmdMain, pmdTest, spotbugsMain, spotbugsTest)
