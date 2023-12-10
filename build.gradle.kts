@@ -7,7 +7,7 @@ plugins {
     id("maven-publish")
     id("checkstyle")
     id("pmd")
-    id("com.github.spotbugs") version "6.0.1"
+    id("com.github.spotbugs") version "6.0.2"
     id("net.ltgt.errorprone") version "3.1.0"
     id("com.github.ben-manes.versions") version "0.50.0"
 }
@@ -18,7 +18,7 @@ repositories {
 }
 
 group = "io.github.mfvanek"
-version = "1.2.1"
+version = "1.3.0"
 description = "Word grouping data structure"
 
 dependencies {
