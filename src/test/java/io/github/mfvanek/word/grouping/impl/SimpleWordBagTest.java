@@ -70,4 +70,31 @@ class SimpleWordBagTest {
                 .isInstanceOf(NullPointerException.class)
                 .hasMessage("word cannot be null");
     }
+
+    @SuppressWarnings("ConstantValue")
+    @Test
+    void equalsAndHashCode() {
+        final WordBag first = SimpleWordBag.of("one");
+        final WordBag theSame = SimpleWordBag.of("one");
+        final WordBag second = SimpleWordBag.of("two");
+
+        assertThat(first.equals(null)).isFalse();
+        //noinspection EqualsBetweenInconvertibleTypes
+        assertThat(first.equals(Integer.MAX_VALUE)).isFalse();
+
+        // self
+        assertThat(first)
+                .isEqualTo(first)
+                .hasSameHashCodeAs(first);
+
+        // the same
+        assertThat(theSame)
+                .isEqualTo(first)
+                .hasSameHashCodeAs(first);
+
+        // others
+        assertThat(second)
+                .isNotEqualTo(first)
+                .doesNotHaveSameHashCodeAs(first);
+    }
 }

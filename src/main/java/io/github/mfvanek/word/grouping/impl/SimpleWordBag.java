@@ -52,6 +52,24 @@ public final class SimpleWordBag implements WordBag {
         return String.format("[%s]", String.join(", ", bag));
     }
 
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        if (!(other instanceof SimpleWordBag that)) {
+            return false;
+        }
+
+        return Objects.equals(bag, that.bag);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bag);
+    }
+
     @Nonnull
     public static WordBag of(final String word) {
         return new SimpleWordBag()

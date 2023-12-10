@@ -241,4 +241,31 @@ class SimpleWordGroupingTableTest {
                 .isNotEqualTo(table)
                 .satisfies(t -> assertThat(t.size()).isZero());
     }
+
+    @SuppressWarnings("ConstantValue")
+    @Test
+    void equalsAndHashCode() {
+        final WordGroupingTable first = SimpleWordGroupingTable.fromStringWithDelimiter("apple banana orange");
+        final WordGroupingTable theSame = SimpleWordGroupingTable.fromStringWithDelimiter("apple banana orange");
+        final WordGroupingTable second = SimpleWordGroupingTable.fromStringWithDelimiter("apple banana melon");
+
+        assertThat(first.equals(null)).isFalse();
+        //noinspection EqualsBetweenInconvertibleTypes
+        assertThat(first.equals(Integer.MAX_VALUE)).isFalse();
+
+        // self
+        assertThat(first)
+                .isEqualTo(first)
+                .hasSameHashCodeAs(first);
+
+        // the same
+        assertThat(theSame)
+                .isEqualTo(first)
+                .hasSameHashCodeAs(first);
+
+        // others
+        assertThat(second)
+                .isNotEqualTo(first)
+                .doesNotHaveSameHashCodeAs(first);
+    }
 }

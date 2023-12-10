@@ -22,7 +22,11 @@ For more information see two main interfaces:
 - [WordGroupingTable](https://github.com/mfvanek/word-grouping-data-structure/blob/master/src/main/java/io/github/mfvanek/word/grouping/interfaces/WordGroupingTable.java)
 
 ## Technology stack
-- Java 11
-- Maven
+- Java 17
+- Gradle
 - [Google Guava](https://github.com/google/guava)
 - JUnit 5
+- [SpotBugs](https://spotbugs.github.io/)
+- [Error Prone](https://errorprone.info/)
+- [Checkstyle](https://checkstyle.sourceforge.io/)
+- [PMD](https://pmd.github.io/)
