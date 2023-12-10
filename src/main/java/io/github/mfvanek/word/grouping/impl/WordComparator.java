@@ -7,12 +7,14 @@
 
 package io.github.mfvanek.word.grouping.impl;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Comparator;
 
 class WordComparator implements Comparator<String>, Serializable {
 
-    private static final long serialVersionUID = 7157753977559928195L;
+    @Serial
+    private static final long serialVersionUID = 7894371111950907860L;
 
     @Override
     public int compare(final String word1, final String word2) {

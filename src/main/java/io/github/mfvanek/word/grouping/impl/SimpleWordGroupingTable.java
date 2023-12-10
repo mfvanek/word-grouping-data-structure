@@ -114,13 +114,31 @@ public final class SimpleWordGroupingTable implements WordGroupingTable {
         return stringJoiner.toString();
     }
 
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) {
+            return true;
+        }
+
+        if (!(other instanceof SimpleWordGroupingTable that)) {
+            return false;
+        }
+
+        return Objects.equals(groups, that.groups);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(groups);
+    }
+
     private static void validateWord(final String word) {
         validateWord(word, true);
     }
 
     private static void validateWord(final String word, final boolean throwsOnBlankStrings) {
         Objects.requireNonNull(word, "word cannot be null");
-        if (StringUtils.isBlank(word) && throwsOnBlankStrings) {
+        if (throwsOnBlankStrings && StringUtils.isBlank(word)) {
             throw new IllegalArgumentException("word cannot be empty");
         }
     }
