@@ -33,7 +33,7 @@ dependencies {
     //pitest("it.mulders.stryker:pit-dashboard-reporter:0.2.1")
     checkstyle("com.thomasjensen.checkstyle.addons:checkstyle-addons:7.0.1")
 
-    errorprone("com.google.errorprone:error_prone_core:2.23.0")
+    errorprone("com.google.errorprone:error_prone_core:2.24.0")
     errorprone("jp.skypencil.errorprone.slf4j:errorprone-slf4j:0.1.21")
 
     spotbugsPlugins("jp.skypencil.findbugs.slf4j:bug-pattern:1.5.0")
@@ -53,7 +53,7 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
     options.errorprone {
         disableWarningsInGeneratedCode.set(true)
-        disable("Slf4jLoggerShouldBeNonStatic", "EqualsIncompatibleType")
+        disable("Slf4jLoggerShouldBeNonStatic", "EqualsIncompatibleType", "TruthSelfEquals")
     }
 }
 tasks.withType<Javadoc>{
