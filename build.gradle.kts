@@ -53,7 +53,7 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
     options.errorprone {
         disableWarningsInGeneratedCode.set(true)
-        disable("Slf4jLoggerShouldBeNonStatic", "EqualsIncompatibleType")
+        disable("Slf4jLoggerShouldBeNonStatic", "EqualsIncompatibleType", "TruthSelfEquals")
     }
 }
 tasks.withType<Javadoc>{
