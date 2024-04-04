@@ -7,6 +7,7 @@
 
 package io.github.mfvanek.word.grouping.impl;
 
+import com.google.common.collect.SortedMultiset;
 import com.google.common.collect.TreeMultiset;
 import io.github.mfvanek.word.grouping.interfaces.WordBag;
 
@@ -22,7 +23,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 public final class SimpleWordBag implements WordBag {
 
-    private final TreeMultiset<String> bag;
+    private final SortedMultiset<String> bag;
 
     public SimpleWordBag() {
         bag = TreeMultiset.create(new WordComparator());

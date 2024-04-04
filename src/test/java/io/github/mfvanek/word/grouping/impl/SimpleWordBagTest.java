@@ -71,7 +71,7 @@ class SimpleWordBagTest {
                 .hasMessage("word cannot be null");
     }
 
-    @SuppressWarnings("ConstantValue")
+    @SuppressWarnings({"ConstantValue", "PMD.EqualsNull"})
     @Test
     void equalsAndHashCode() {
         final WordBag first = SimpleWordBag.of("one");
