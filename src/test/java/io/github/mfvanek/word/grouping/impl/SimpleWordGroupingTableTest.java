@@ -242,7 +242,7 @@ class SimpleWordGroupingTableTest {
                 .satisfies(t -> assertThat(t.size()).isZero());
     }
 
-    @SuppressWarnings("ConstantValue")
+    @SuppressWarnings({"ConstantValue", "PMD.EqualsNull"})
     @Test
     void equalsAndHashCode() {
         final WordGroupingTable first = SimpleWordGroupingTable.fromStringWithDelimiter("apple banana orange");
